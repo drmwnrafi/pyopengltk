@@ -10,13 +10,12 @@ else:
     from tkinter import dialog as dialog
 
 
-class BaseOpenGLFrame(tk.Frame):
+class BaseOpenGLFrame(tk.Canvas):
     """ Common code for windows/x11 """
     def __init__(self, *args, **kw):
         # Set background to empty string to avoid
         # flickering overdraw by Tk
-        kw['bg'] = ""
-        tk.Frame.__init__(self, *args, **kw)
+        tk.Canvas.__init__(self, *args, **kw)
         self.bind('<Map>', self.tkMap)
         self.bind('<Configure>', self.tkResize)
         self.bind('<Expose>', self.tkExpose)
